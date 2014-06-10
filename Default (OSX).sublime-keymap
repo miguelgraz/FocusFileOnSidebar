@@ -1,0 +1,3 @@
+[
+  { "keys": ["super+k", "super+f"], "command": "focus_file_on_sidebar" }
+]
