@@ -3,7 +3,9 @@ FocusFileOnSidebar
 
 Sublime Text has two options regarding its sidebar: `Toggle Side Bar` and `Reveal in Side Bar`, in many (mine :P) workflows people want to browse their files tree right on the opened file's folder, which isn't possible with those two options alone.
 
-This plugin aims to give an easier and simple option that allows the developer to use the new command `Focus File On Sidebar` to open sidebar and move focus right to the opened file's place on project's tree, this way the user can navigate on files tree with keyboard arrows, and use the same command `Focus File On Sidebar` to close sidebar and fold the unfolded folders, preparing it to be used in the same way again (this is needed because if the folder is already opened the focus goes to "opened files" section on the top of sidebar). It's hard to explain how this small changing of focus to the sidebar improved my everyday workflow, I no longer use the `Reveal in Side Bar` command, I'd suggest you to give it a try.
+This plugin aims to give an easier and simple option that allows the developer to use the new command `Focus File On Sidebar` to open sidebar and move focus right to the opened file's place on project's tree, this way the user can navigate on files tree with keyboard arrows, and use the same command `Focus File On Sidebar` to close sidebar and fold the unfolded folders, preparing it to be used in the same way again (this is needed because if the folder is already opened the focus goes to "opened files" section on the top of sidebar). 
+
+It's hard to explain how this small changing of focus to the sidebar improved my everyday workflow, I no longer use the `Reveal in Side Bar` command, I'd suggest you to give it a try.
 
 ## How to use
 
