@@ -11,7 +11,7 @@ By default the plugin adds the `Focus File On Sidebar` command to the command pa
 
 ## How to install
 
-In the same way you can install all the others Sublime plugins, by running a `git clone git@github.com:miguelgraz/FocusFileOnSidebar.git` on your `Packages` folder or, as soon as I have my pull request accepted, by searching for plugin's name on Package Control.
+In the same way you can install all the others Sublime plugins, by running a `git clone git@github.com:miguelgraz/FocusFileOnSidebar.git` on your `Packages` folder or, if you use Package Control, just by searching the plugin's name and installing from there.
 
 ## Errors? Doubts? How this differs from `Reveal in Side Bar`? Contributing?
 
