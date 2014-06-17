@@ -39,4 +39,4 @@ class FocusFileOnSidebar(sublime_plugin.WindowCommand):
             sublime.set_timeout(lambda:self.window.run_command('focus_side_bar'), 100)
         else:
             self.window.run_command("toggle_side_bar")
-            sublime.set_timeout(lambda:refresh_folders(self), 300)
+            sublime.set_timeout(lambda:refresh_folders(self), 100)
