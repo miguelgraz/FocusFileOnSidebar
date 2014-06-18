@@ -1,5 +1,16 @@
 import sublime, sublime_plugin
 
+def plugin_loaded():
+    print('start')
+    global teste
+    settings_base = sublime.load_settings("Preferences.sublime-settings")
+    settings = sublime.load_settings("FocusFileOnSidebar.sublime-settings")
+    teste = settings_base.get('teste') if (settings_base.get('teste') is not None) else settings.get('teste')
+    print(teste)
+
+    settings.add_on_change('reload', lambda:plugin_loaded())
+    settings_base.add_on_change('focusfileonsidebar-reload', lambda:plugin_loaded())
+
 # Thanks https://github.com/titoBouzout
 # https://github.com/SublimeText/SideBarFolders/blob/fb4b2ba5b8fe5b14453eebe8db05a6c1b918e029/SideBarFolders.py#L59-L75
 def is_sidebar_open(self):
@@ -38,5 +49,10 @@ class FocusFileOnSidebar(sublime_plugin.WindowCommand):
             # Without the timeout the command on the pallete doesn't work
             sublime.set_timeout(lambda:self.window.run_command('focus_side_bar'), 100)
         else:
-            self.window.run_command("toggle_side_bar")
-            sublime.set_timeout(lambda:refresh_folders(self), 100)
+            print(teste)
+            if teste:
+                self.window.run_command("toggle_side_bar")
+                sublime.set_timeout(lambda:refresh_folders(self), 100)
+            else:
+                self.window.run_command("reveal_in_side_bar")
+                self.window.run_command('focus_side_bar')
