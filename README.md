@@ -7,11 +7,15 @@ This plugin aims to give an easier and simple option that allows the developer t
 
 It's hard to explain how this small changing of focus to the sidebar improved my everyday workflow, I no longer use the `Reveal in Side Bar` command, I'd suggest you to give it a try.
 
-## How to use
+## Using
 
 By default the plugin adds the `Focus File On Sidebar` command to the command pallete (`control+shift+P`) and adds the shortcut `Ctrl+K, Ctrl+F` (Windows/Linux) or `Cmd+K, Cmd+F` (OSX) to be used faster, obviously you can overwrite this options on your `Packages/User/Default (YourOS).sublime-keymap` file simply by assigning another shortcut to `focus_file_on_sidebar` command.
 
-## How to install
+## Configuring
+
+If your sidebar is already opened by default the plugin closes it and focus back on your file, some people weren't expecting this behavior, instead they wanted the plugin to focus the current file on sidebar (since you can change the current file while having the sidebar opened). Thinking about this different workflow I've added an option named `close_sidebar_if_opened` defaulting to `true`, if you prefer to always have your sidebar opened and that the plugin just reveal and focus different files please add a line with `"close_sidebar_if_opened": false` to your `Packages/User/Preferences.sublime-settings` file, [like this](https://github.com/miguelgraz/FocusFileOnSidebar/blob/master/FocusFileOnSidebar.sublime-settings#L2-4).
+
+## Installing
 
 In the same way you can install all the others Sublime plugins, by running a `git clone git@github.com:miguelgraz/FocusFileOnSidebar.git` on your `Packages` folder or, if you use Package Control, just by searching the plugin's name and installing from there.
 

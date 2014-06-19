@@ -1,12 +1,10 @@
 import sublime, sublime_plugin
 
 def plugin_loaded():
-    print('start')
-    global teste
+    global close_sidebar_if_opened
     settings_base = sublime.load_settings("Preferences.sublime-settings")
     settings = sublime.load_settings("FocusFileOnSidebar.sublime-settings")
-    teste = settings_base.get('teste') if (settings_base.get('teste') is not None) else settings.get('teste')
-    print(teste)
+    close_sidebar_if_opened = settings_base.get('close_sidebar_if_opened') if (settings_base.get('close_sidebar_if_opened') is not None) else settings.get('close_sidebar_if_opened')
 
     settings.add_on_change('reload', lambda:plugin_loaded())
     settings_base.add_on_change('focusfileonsidebar-reload', lambda:plugin_loaded())
@@ -49,8 +47,7 @@ class FocusFileOnSidebar(sublime_plugin.WindowCommand):
             # Without the timeout the command on the pallete doesn't work
             sublime.set_timeout(lambda:self.window.run_command('focus_side_bar'), 100)
         else:
-            print(teste)
-            if teste:
+            if close_sidebar_if_opened:
                 self.window.run_command("toggle_side_bar")
                 sublime.set_timeout(lambda:refresh_folders(self), 100)
             else:
