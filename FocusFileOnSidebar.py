@@ -1,5 +1,8 @@
 import sublime, sublime_plugin
 
+is_st2 = int(sublime.version()) < 3000
+close_sidebar_if_opened = True
+
 def plugin_loaded():
     global close_sidebar_if_opened
     settings_base = sublime.load_settings("Preferences.sublime-settings")
@@ -53,3 +56,6 @@ class FocusFileOnSidebar(sublime_plugin.WindowCommand):
             else:
                 self.window.run_command("reveal_in_side_bar")
                 self.window.run_command('focus_side_bar')
+
+if is_st2:
+  sublime.set_timeout(plugin_loaded, 500)
