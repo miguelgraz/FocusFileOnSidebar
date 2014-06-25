@@ -1,6 +1,6 @@
 [
   {
     "caption": "Focus File on Sidebar",
-    "command": "focus_file_on_sidebar",
+    "command": "focus_file_on_sidebar"
   }
 ]
