@@ -1,16 +1,14 @@
 import sublime, sublime_plugin
 
-is_st2 = int(sublime.version()) < 3000
 close_sidebar_if_opened = True
+global settings_base
+global settings
+settings_base = sublime.load_settings("Preferences.sublime-settings")
+settings = sublime.load_settings("FocusFileOnSidebar.sublime-settings")
 
 def plugin_loaded():
     global close_sidebar_if_opened
-    settings_base = sublime.load_settings("Preferences.sublime-settings")
-    settings = sublime.load_settings("FocusFileOnSidebar.sublime-settings")
     close_sidebar_if_opened = settings_base.get('close_sidebar_if_opened') if (settings_base.get('close_sidebar_if_opened') is not None) else settings.get('close_sidebar_if_opened')
-
-    settings.add_on_change('reload', lambda:plugin_loaded())
-    settings_base.add_on_change('focusfileonsidebar-reload', lambda:plugin_loaded())
 
 # Thanks https://github.com/titoBouzout
 # https://github.com/SublimeText/SideBarFolders/blob/fb4b2ba5b8fe5b14453eebe8db05a6c1b918e029/SideBarFolders.py#L59-L75
@@ -57,5 +55,5 @@ class FocusFileOnSidebar(sublime_plugin.WindowCommand):
                 self.window.run_command("reveal_in_side_bar")
                 self.window.run_command('focus_side_bar')
 
-if is_st2:
-  sublime.set_timeout(plugin_loaded, 500)
+settings.add_on_change('reload', lambda:plugin_loaded())
+settings_base.add_on_change('focusfileonsidebar-reload', lambda:plugin_loaded())
