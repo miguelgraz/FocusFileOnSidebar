@@ -4,9 +4,11 @@ close_sidebar_if_opened = True
 
 def plugin_loaded():
     global close_sidebar_if_opened
+    global settings
+    global settings_base
 
-    settings_base = sublime.load_settings("Preferences.sublime-settings")
     settings = sublime.load_settings("FocusFileOnSidebar.sublime-settings")
+    settings_base = sublime.load_settings("Preferences.sublime-settings")
     plugin_reload()
     settings.add_on_change('reload', plugin_reload)
     settings_base.add_on_change('focusfileonsidebar-reload', plugin_reload)
