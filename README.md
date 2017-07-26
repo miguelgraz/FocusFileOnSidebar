@@ -24,3 +24,8 @@ In the same way you can install all the others Sublime plugins, by running a `gi
 You can always send a pull request, send me an email or create an issue with your doubts/feature request/critics =)
 
 I really hope this could be of any use for you!
+
+### Maintainers
+
+* [Miguel Schmitz Grazziotin](https://github.com/miguelgraz)
+* [Ben Felder](https://github.com/bfelder)
