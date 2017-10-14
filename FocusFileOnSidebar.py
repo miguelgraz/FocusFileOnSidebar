@@ -24,10 +24,6 @@ def plugin_unloaded():
     settings.clear_on_change('reload')
     settings_base.clear_on_change('focusfileonsidebar-reload')
 
-# Thanks https://github.com/titoBouzout
-# https://github.com/SublimeText/SideBarFolders/blob/fb4b2ba5b8fe5b14453eebe8db05a6c1b918e029/SideBarFolders.py#L59-L75
-
-
 def refresh_folders(self):
     data = get_project_json(self)
     set_project_json(self, {})
