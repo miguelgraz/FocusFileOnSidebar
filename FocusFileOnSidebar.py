@@ -37,19 +37,21 @@ def get_project_json(self):
 def set_project_json(self, data):
     return self.window.set_project_data(data)
 
+def reveal_and_focus_in_sidebar(self):
+    self.window.run_command("reveal_in_side_bar")
+    self.window.run_command("focus_side_bar")
 
 class FocusFileOnSidebar(sublime_plugin.WindowCommand):
     def run(self):
         if not self.window.is_sidebar_visible():
+            refresh_folders(self)
             self.window.set_sidebar_visible(True)
-            self.window.run_command("reveal_in_side_bar")
-            # Without the timeout the command on the palette doesn't work
-            sublime.set_timeout(
-                lambda: self.window.run_command('focus_side_bar'), 50)
+            # set_project_data is asynchronous so we need settimeout for subsequent commands
+            sublime.set_timeout_async(lambda: reveal_and_focus_in_sidebar(self), 250)
         else:
             if close_sidebar_if_opened:
                 self.window.set_sidebar_visible(False)
-                sublime.set_timeout(lambda: refresh_folders(self), 50)
+                refresh_folders(self)
             else:
-                self.window.run_command("reveal_in_side_bar")
-                self.window.run_command('focus_side_bar')
+                refresh_folders(self)
+                sublime.set_timeout_async(lambda: reveal_and_focus_in_sidebar(self), 250)
